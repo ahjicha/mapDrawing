@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoomViewController">
+   <children>
+      <ImageView fx:id="polygonView" fitHeight="1906.0" fitWidth="1455.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@roomstobook.jpg" />
+         </image>
+      </ImageView>
+      <Group fx:id="polygonGroup" AnchorPane.topAnchor="0.0">
+         <children>
+            <Canvas fx:id="polygonCanvas" height="1906.0" width="1455.0" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

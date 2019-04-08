@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Polygon;
@@ -19,11 +20,12 @@ public class RoomViewController implements Initializable {
 
     public ImageView polygonView;
 
-    public Canvas polygonCanvas;
-
+    public AnchorPane polygonAnchor;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        //create the zones and rooms as polygons
         Polygon workzoneOne = new Polygon();
         Polygon workzoneTwo = new Polygon();
         Polygon workzoneThree = new Polygon();
@@ -40,6 +42,7 @@ public class RoomViewController implements Initializable {
         Polygon classroomNine = new Polygon();
         Polygon auditorium = new Polygon();
 
+        //assign boundaries to the polygons
         classroomOne.getPoints().addAll(new Double[]{
                 //coordinate 1
                 869.8,624.0,
@@ -334,7 +337,7 @@ public class RoomViewController implements Initializable {
 
 
         Color sea = Color.web("0x032c59", 0.5);
-
+        //setting the fill color
         workzoneFive.setFill(sea);
         workzoneFour.setFill(sea);
         workzoneThree.setFill(sea);
@@ -352,7 +355,15 @@ public class RoomViewController implements Initializable {
         classroomNine.setFill(sea);
         auditorium.setFill(sea);
 
+        //resizing and scaling
+        polygonGroup.setScaleX(.2);
+        polygonGroup.setScaleY(.2);
 
+        polygonGroup.setTranslateY( - (polygonGroup.getBoundsInLocal().getHeight() - polygonGroup.getBoundsInParent().getHeight())/2);
+        polygonGroup.setTranslateX( - (polygonGroup.getBoundsInLocal().getWidth() - polygonGroup.getBoundsInParent().getWidth())/2);
+
+
+        //adding the polygons to the group
         polygonGroup.getChildren().add(workzoneFive);
         polygonGroup.getChildren().add(workzoneFour);
         polygonGroup.getChildren().add(workzoneThree);
